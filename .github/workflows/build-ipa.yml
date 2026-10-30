@@ -8,26 +8,46 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Build unsigned .app
+        id: build
         run: |
-          set -euxo pipefail
+          set +e
+          set -o pipefail
           xcodebuild -project ios/WATransChat/WATransChat.xcodeproj \
             -target WATransChat \
             -configuration Release \
             -sdk iphoneos \
             -derivedDataPath build/DerivedData \
             CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO \
-            build
+            build 2>&1 | tee build-log.txt
+          EXIT=${PIPESTATUS[0]}
+          echo "XCODE_EXIT=$EXIT"
+          exit $EXIT
       - name: Package unsigned .ipa
+        if: steps.build.outcome == 'success'
         run: |
           set -euxo pipefail
           APP_PATH=$(find build/DerivedData/Build/Products/Release-iphoneos -maxdepth 1 -name "*.app" -type d | head -n 1)
+          if [ -z "$APP_PATH" ]; then
+            echo "NO_APP_FOUND"
+            find build -name "*.app" -type d 2>/dev/null | head -n 10
+            exit 1
+          fi
           mkdir -p ipa/Payload
           cp -R "$APP_PATH" ipa/Payload/
           cd ipa
           zip -qr WATransChat-unsigned.ipa Payload
           cd ..
           ls -la ipa/WATransChat-unsigned.ipa
-      - uses: actions/upload-artifact@v4
+      - name: Upload build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build-log.txt
+          if-no-files-found: ignore
+      - name: Upload ipa
+        if: steps.build.outcome == 'success'
+        uses: actions/upload-artifact@v4
         with:
           name: WATransChat-unsigned-ipa
           path: ipa/WATransChat-unsigned.ipa
