@@ -7,13 +7,16 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+      - name: List schemes (diagnostic)
+        id: list
+        run: xcodebuild -project ios/WATransChat/WATransChat.xcodeproj -list
       - name: Build unsigned .app
         id: build
         run: |
           set +e
           set -o pipefail
           xcodebuild -project ios/WATransChat/WATransChat.xcodeproj \
-            -target WATransChat \
+            -scheme WATransChat \
             -configuration Release \
             -sdk iphoneos \
             -derivedDataPath build/DerivedData \
