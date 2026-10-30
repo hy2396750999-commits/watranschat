@@ -23,6 +23,10 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 
+	<!-- 现代启动屏幕（空配置即触发全屏渲染） -->
+	<key>UILaunchScreen</key>
+	<dict/>
+
 	<!-- 允许加载 http / 混合内容（WhatsApp Web 及翻译接口） -->
 	<key>NSAppTransportSecurity</key>
 	<dict>
