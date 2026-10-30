@@ -296,7 +296,7 @@ final class PickerCell: UITableViewCell {
         self.detail.text = detail
         self.detail.textColor = .secondaryLabel
         accessoryType = .disclosureIndicator
-        if detail.superview == nil {
+        if self.detail.superview == nil {
             contentView.addSubview(self.detail)
             self.detail.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([

@@ -266,7 +266,7 @@ final class CallSpeechManager {
         let session = AVAudioSession.sharedInstance()
         try session.setCategory(.playAndRecord,
                                 mode: .voiceChat,
-                                options: [.defaultToSpeaker, .allowBluetooth, .allowBluetoothA2DP])
+                                options: [.defaultToSpeaker, .allowBluetoothHFP, .allowBluetoothA2DP])
         try session.setActive(true)
     }
 

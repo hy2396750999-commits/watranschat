@@ -116,7 +116,7 @@ final class ViewController: UIViewController {
         for item in entries.suffix(12) {
             let title = (item.title?.isEmpty == false ? item.title! : item.url.absoluteString)
             alert.addAction(UIAlertAction(title: title, style: .default, handler: { [weak self] _ in
-                self?.webView.load(item)
+                self?.webView.go(to: item)
             }))
         }
         alert.addAction(UIAlertAction(title: "回到 WhatsApp", style: .default, handler: { [weak self] _ in
