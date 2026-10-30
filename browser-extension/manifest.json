@@ -1,0 +1,85 @@
+{
+  "manifest_version": 3,
+  "name": "WATransChat - WhatsApp 智能翻译",
+  "version": "2.6.8",
+  "description": "WhatsApp 跨语言智能翻译助手，外贸沟通不翻墙也可与老外聊天",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "WATransChat - WhatsApp 智能翻译",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://web.whatsapp.com/*",
+        "https://*.whatsapp.com/*"
+      ],
+      "run_at": "document_start",
+      "css": [
+        "shared-core/styles.css"
+      ],
+      "js": [
+        "shared-core/core/config.js",
+        "shared-core/core/storage.js",
+        "shared-core/core/utils.js",
+        "shared-core/core/net.js",
+        "shared-core/data/countries.js",
+        "shared-core/translators/google.js",
+        "shared-core/translators/bing.js",
+        "shared-core/translators/volcano.js",
+        "shared-core/translators/deepl.js",
+        "shared-core/modules/translate.js",
+        "shared-core/modules/messages.js",
+        "shared-core/modules/countryBar.js",
+        "shared-core/modules/chatList.js",
+        "shared-core/modules/quickPhrase.js",
+        "shared-core/modules/quickChat.js",
+        "shared-core/modules/todo.js",
+        "shared-core/modules/aiStaff.js",
+        "shared-core/modules/settingsPanel.js",
+        "shared-core/modules/callTranslator.js",
+        "shared-core/inject.js",
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications"
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/*",
+    "https://*.whatsapp.com/*",
+    "https://translate.googleapis.com/*",
+    "https://www.bing.com/*",
+    "https://api-free.deepl.com/*",
+    "https://api.deepl.com/*",
+    "https://*.volcengineapi.com/*"
+  ],
+  "options_page": "options/options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "shared-core/*",
+        "icons/*"
+      ],
+      "matches": [
+        "https://web.whatsapp.com/*",
+        "https://*.whatsapp.com/*"
+      ]
+    }
+  ]
+}

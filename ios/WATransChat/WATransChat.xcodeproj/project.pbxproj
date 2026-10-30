@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000101 /* App.swift */; };
+		A10000000000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000102 /* SceneDelegate.swift */; };
+		A10000000000000000000003 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000103 /* ViewController.swift */; };
+		A10000000000000000000004 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000104 /* SettingsViewController.swift */; };
+		A10000000000000000000005 /* ConfigStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000105 /* ConfigStore.swift */; };
+		A10000000000000000000006 /* CallSpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000106 /* CallSpeechManager.swift */; };
+		A10000000000000000000010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000110 /* Assets.xcassets */; };
+		A10000000000000000000011 /* native-bridge.js in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000111 /* native-bridge.js */; };
+		A10000000000000000000012 /* wtc.combined.js in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000112 /* wtc.combined.js */; };
+		A10000000000000000000013 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000113 /* styles.css */; };
+		A10000000000000000000014 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000114 /* Localizable.strings */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A10000000000000000000101 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		A10000000000000000000102 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A10000000000000000000103 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A10000000000000000000104 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A10000000000000000000105 /* ConfigStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigStore.swift; sourceTree = "<group>"; };
+		A10000000000000000000106 /* CallSpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallSpeechManager.swift; sourceTree = "<group>"; };
+		A10000000000000000000110 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A10000000000000000000111 /* native-bridge.js */ = {isa = PBXFileReference; lastKnownFileType = text.js; path = native-bridge.js; sourceTree = "<group>"; };
+		A10000000000000000000112 /* wtc.combined.js */ = {isa = PBXFileReference; lastKnownFileType = text.js; path = wtc.combined.js; sourceTree = "<group>"; };
+		A10000000000000000000113 /* styles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
+		A10000000000000000000114 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		A10000000000000000000120 /* WATransChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WATransChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000000000000000000201 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A10000000000000000000300 = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000310 /* WATransChat */,
+				A10000000000000000000320 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A10000000000000000000320 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000120 /* WATransChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000310 /* WATransChat */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000101 /* App.swift */,
+				A10000000000000000000102 /* SceneDelegate.swift */,
+				A10000000000000000000103 /* ViewController.swift */,
+				A10000000000000000000104 /* SettingsViewController.swift */,
+				A10000000000000000000105 /* ConfigStore.swift */,
+				A10000000000000000000106 /* CallSpeechManager.swift */,
+				A10000000000000000000110 /* Assets.xcassets */,
+				A10000000000000000000114 /* Localizable.strings */,
+				A10000000000000000000311 /* share */,
+			);
+			path = WATransChat;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000311 /* share */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000111 /* native-bridge.js */,
+				A10000000000000000000112 /* wtc.combined.js */,
+				A10000000000000000000113 /* styles.css */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000000000000000000401 /* WATransChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000611 /* Build configuration list for PBXNativeTarget "WATransChat" */;
+			buildPhases = (
+				A10000000000000000000201 /* Frameworks */,
+				A10000000000000000000202 /* Sources */,
+				A10000000000000000000203 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WATransChat;
+			packageProductDependencies = (
+			);
+			productName = WATransChat;
+			productReference = A10000000000000000000120 /* WATransChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000000000000000000501 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				ORGANIZATIONNAME = WATransChat;
+				TargetAttributes = {
+					A10000000000000000000401 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = A10000000000000000000601 /* Build configuration list for PBXProject "WATransChat" */;
+			compatibilityVersion = Xcode 14.0;
+			developmentRegion = zh-Hans;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				zh-Hans,
+				Base,
+			);
+			mainGroup = A10000000000000000000300;
+			productRefGroup = A10000000000000000000320 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A10000000000000000000401 /* WATransChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A10000000000000000000203 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000010 /* Assets.xcassets in Resources */,
+				A10000000000000000000011 /* native-bridge.js in Resources */,
+				A10000000000000000000012 /* wtc.combined.js in Resources */,
+				A10000000000000000000013 /* styles.css in Resources */,
+				A10000000000000000000014 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000000000000000000202 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* App.swift in Sources */,
+				A10000000000000000000002 /* SceneDelegate.swift in Sources */,
+				A10000000000000000000003 /* ViewController.swift in Sources */,
+				A10000000000000000000004 /* SettingsViewController.swift in Sources */,
+				A10000000000000000000005 /* ConfigStore.swift in Sources */,
+				A10000000000000000000006 /* CallSpeechManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A10000000000000000000602 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A10000000000000000000603 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A10000000000000000000612 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WATransChat/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.6.8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.watranschat.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A10000000000000000000613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = WATransChat/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.6.8;
+				PRODUCT_BUNDLE_IDENTIFIER = com.watranschat.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10000000000000000000601 /* Build configuration list for PBXProject "WATransChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000602 /* Debug */,
+				A10000000000000000000603 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000611 /* Build configuration list for PBXNativeTarget "WATransChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000612 /* Debug */,
+				A10000000000000000000613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A10000000000000000000501 /* Project object */;
+}

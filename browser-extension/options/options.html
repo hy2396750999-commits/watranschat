@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>翻译设置 · WATransChat</title>
+  <link rel="stylesheet" href="../shared-core/styles.css" />
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <!-- 标题栏（返回箭头样式，页面内仅作标题展示） -->
+  <header class="op-header">
+    <span class="op-back" aria-hidden="true">‹</span>
+    <h1 class="op-title">翻译设置</h1>
+  </header>
+
+  <main class="op-main">
+
+    <!-- ============ 译文设置 ============ -->
+    <section class="op-card" id="sec-translate">
+      <h2 class="op-group-title">译文设置</h2>
+
+      <!-- 您的语言 -->
+      <div class="op-field">
+        <label class="op-label" for="selMyLang">您的语言</label>
+        <select class="op-select" id="selMyLang"></select>
+        <div class="op-hint">收到外语消息后翻译成该语言；发送时也以此语言为基准回译。</div>
+      </div>
+
+      <!-- 全局翻译引擎 -->
+      <div class="op-field">
+        <label class="op-label" for="selEngine">全局翻译引擎</label>
+        <select class="op-select" id="selEngine"></select>
+        <div class="op-hint">谷歌、微软为免费引擎；火山 / DeepL 需在下方填写密钥。</div>
+      </div>
+
+      <!-- 译文颜色 -->
+      <div class="op-field">
+        <label class="op-label">译文颜色</label>
+        <button type="button" class="op-color-row" id="btnColor">
+          <span class="op-color-dot" id="colorDot"></span>
+          <span class="op-color-text" id="colorText">点击选择颜色</span>
+          <span class="op-arrow">›</span>
+        </button>
+        <div class="op-hint">聊天气泡内译文的显示颜色。</div>
+      </div>
+
+      <!-- 自动发送译文 -->
+      <div class="op-row">
+        <div class="op-row-text">
+          <div class="op-row-title">自动发送译文</div>
+          <div class="op-hint">回复外语客户时，自动把译文填入并发送。</div>
+        </div>
+        <label class="op-switch">
+          <input type="checkbox" id="swAutoSend" />
+          <span class="op-slider"></span>
+        </label>
+      </div>
+
+      <!-- 网页 DOM 检查 -->
+      <div class="op-row">
+        <div class="op-row-text">
+          <div class="op-row-title">网页 DOM 检查</div>
+          <div class="op-hint">开启后可悬停页面元素查看 DOM 结构与选择器，用于调试翻译挂载点，普通用户无需开启。</div>
+        </div>
+        <label class="op-switch">
+          <input type="checkbox" id="swDomInspector" />
+          <span class="op-slider"></span>
+        </label>
+      </div>
+
+      <!-- 译文位置 -->
+      <div class="op-field">
+        <label class="op-label">译文位置</label>
+        <div class="op-radios" id="positionRadios"></div>
+      </div>
+
+      <!-- 分屏翻译 -->
+      <div class="op-row">
+        <div class="op-row-text">
+          <div class="op-row-title">分屏翻译</div>
+          <div class="op-hint">开启后原文与译文左右分屏对照显示。</div>
+        </div>
+        <label class="op-switch">
+          <input type="checkbox" id="swSplit" />
+          <span class="op-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- ============ 通话翻译 ============ -->
+    <section class="op-card" id="sec-call">
+      <h2 class="op-group-title">通话翻译</h2>
+      <div class="op-hint" style="margin-bottom:12px;">通话同声传译面板的默认设置；打开 WhatsApp 通话后在聊天顶部点听筒图标进入面板。</div>
+
+      <!-- 默认我的语言 -->
+      <div class="op-field">
+        <label class="op-label" for="selCallMyLang">默认我的语言</label>
+        <select class="op-select" id="selCallMyLang"></select>
+        <div class="op-hint">您说话的语言，识别后翻译成客户语言。</div>
+      </div>
+
+      <!-- 默认客户语言 -->
+      <div class="op-field">
+        <label class="op-label" for="selCallClientLang">默认客户语言</label>
+        <select class="op-select" id="selCallClientLang"></select>
+        <div class="op-hint">客户说的语言，识别后翻译成您的语言；打开具体联系人时会按客户语言记忆覆盖。</div>
+      </div>
+
+      <!-- 自动朗读 -->
+      <div class="op-row">
+        <div class="op-row-text">
+          <div class="op-row-title">自动朗读</div>
+          <div class="op-hint">识别出一方说话后，自动朗读其译文。</div>
+        </div>
+        <label class="op-switch">
+          <input type="checkbox" id="swCallAutoSpeak" />
+          <span class="op-slider"></span>
+        </label>
+      </div>
+
+      <!-- 音色：对方听 / 我方听 -->
+      <div class="op-row">
+        <div class="op-row-text">
+          <div class="op-row-title">音色 · 对方听</div>
+          <div class="op-hint">朗读给客户听的译文音色。</div>
+        </div>
+        <div class="op-radios op-radio-inline">
+          <label><input type="radio" name="callVoiceClient" value="male" /> 男声</label>
+          <label><input type="radio" name="callVoiceClient" value="female" /> 女声</label>
+        </div>
+      </div>
+      <div class="op-row">
+        <div class="op-row-text">
+          <div class="op-row-title">音色 · 我方听</div>
+          <div class="op-hint">朗读给您听的译文音色。</div>
+        </div>
+        <div class="op-radios op-radio-inline">
+          <label><input type="radio" name="callVoiceMine" value="male" /> 男声</label>
+          <label><input type="radio" name="callVoiceMine" value="female" /> 女声</label>
+        </div>
+      </div>
+
+      <!-- 识别引擎 -->
+      <div class="op-field">
+        <label class="op-label" for="selCallAsr">识别引擎</label>
+        <select class="op-select" id="selCallAsr">
+          <option value="webspeech">Web Speech（浏览器本地识别）</option>
+          <option value="cloud">云端 ASR（预留）</option>
+        </select>
+        <div class="op-hint">当前使用浏览器内置语音识别；云端 ASR 为预留项。</div>
+      </div>
+
+      <!-- 显示法律提示 -->
+      <div class="op-row">
+        <div class="op-row-text">
+          <div class="op-row-title">开始时显示法律提示</div>
+          <div class="op-hint">首次点「开始翻译」时弹出录制/隐私确认横幅。</div>
+        </div>
+        <label class="op-switch">
+          <input type="checkbox" id="swCallLegal" />
+          <span class="op-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- ============ 引擎密钥配置 ============ -->
+    <section class="op-card" id="sec-engines">
+      <h2 class="op-group-title">引擎密钥配置</h2>
+
+      <!-- 火山引擎 -->
+      <div class="op-sub">火山引擎翻译（Volcano）</div>
+      <div class="op-field">
+        <label class="op-label" for="vcAk">AccessKeyId</label>
+        <input class="op-input" id="vcAk" type="text" placeholder="火山引擎 AccessKeyId" autocomplete="off" />
+      </div>
+      <div class="op-field">
+        <label class="op-label" for="vcSk">SecretAccessKey</label>
+        <input class="op-input" id="vcSk" type="password" placeholder="火山引擎 SecretAccessKey" autocomplete="off" />
+      </div>
+      <div class="op-field">
+        <label class="op-label" for="vcRegion">Region</label>
+        <input class="op-input" id="vcRegion" type="text" placeholder="cn-north-1" autocomplete="off" />
+      </div>
+
+      <!-- DeepL -->
+      <div class="op-sub">DeepL 翻译</div>
+      <div class="op-field">
+        <label class="op-label" for="deeplKey">API Key</label>
+        <input class="op-input" id="deeplKey" type="password" placeholder="DeepL API Key" autocomplete="off" />
+      </div>
+      <div class="op-row">
+        <div class="op-row-text">
+          <div class="op-row-title">DeepL 版本</div>
+          <div class="op-hint">Free 使用 api-free.deepl.com，Pro 使用 api.deepl.com。</div>
+        </div>
+        <div class="op-radios op-radio-inline" id="deeplTier">
+          <label><input type="radio" name="deeplFree" value="free" /> Free</label>
+          <label><input type="radio" name="deeplFree" value="pro" /> Pro</label>
+        </div>
+      </div>
+
+      <!-- AI 自定义 -->
+      <div class="op-sub">AI 自定义翻译</div>
+      <div class="op-field">
+        <label class="op-label" for="aiBase">Base URL</label>
+        <input class="op-input" id="aiBase" type="text" placeholder="https://api.openai.com/v1" autocomplete="off" />
+      </div>
+      <div class="op-field">
+        <label class="op-label" for="aiKey">API Key</label>
+        <input class="op-input" id="aiKey" type="password" placeholder="AI 服务 API Key" autocomplete="off" />
+      </div>
+      <div class="op-field">
+        <label class="op-label" for="aiModel">Model</label>
+        <input class="op-input" id="aiModel" type="text" placeholder="gpt-4o-mini" autocomplete="off" />
+      </div>
+    </section>
+
+    <!-- ============ 快捷短语管理 ============ -->
+    <section class="op-card" id="phrases">
+      <h2 class="op-group-title">快捷短语管理</h2>
+      <div class="op-add-row">
+        <input class="op-input op-input-sm" id="phGroup" type="text" placeholder="分组，如：报价" />
+        <input class="op-input" id="phText" type="text" placeholder="短语内容（中文）" />
+        <button type="button" class="op-btn op-btn-primary" id="btnAddPhrase">添加</button>
+      </div>
+      <div id="phraseList" class="op-list"></div>
+    </section>
+
+    <!-- ============ 待办管理 ============ -->
+    <section class="op-card" id="todos">
+      <h2 class="op-group-title">待办管理</h2>
+      <div class="op-add-row">
+        <input class="op-input" id="todoText" type="text" placeholder="待办内容，如：给尼日利亚客户回报价" />
+        <input class="op-input op-input-time" id="todoTime" type="datetime-local" />
+        <button type="button" class="op-btn op-btn-primary" id="btnAddTodo">添加</button>
+      </div>
+      <div id="todoList" class="op-list"></div>
+    </section>
+
+    <!-- ============ 导入 / 导出 ============ -->
+    <section class="op-card" id="sec-data">
+      <h2 class="op-group-title">导入 / 导出配置</h2>
+      <div class="op-hint" style="margin-bottom:12px;">导出完整配置 JSON 备份；导入将覆盖当前本地配置。</div>
+      <div class="op-data-row">
+        <button type="button" class="op-btn op-btn-primary" id="btnExport">导出配置 JSON</button>
+        <button type="button" class="op-btn op-btn-ghost" id="btnImport">导入配置 JSON</button>
+        <input type="file" id="importFile" accept="application/json,.json" hidden />
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ 调色板弹层 ============ -->
+  <div class="op-overlay" id="colorOverlay" hidden>
+    <div class="op-palette-card">
+      <h3 class="op-palette-title">选择译文颜色</h3>
+      <div class="op-color-preview" id="colorPreview"></div>
+      <div class="op-palette" id="paletteGrid"></div>
+      <div class="op-card-actions">
+        <button type="button" class="op-btn op-btn-ghost" id="btnCancelColor">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="opToast" class="op-toast" hidden></div>
+
+  <script src="../shared-core/core/config.js"></script>
+  <script src="../shared-core/core/storage.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

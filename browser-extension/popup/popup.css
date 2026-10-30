@@ -1,0 +1,92 @@
+/* WATransChat popup · 320px 绿色干净风格（独立作用域，不依赖页面） */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --wtc-green: #00A884;
+  --wtc-green-d: #075E54;
+  --wtc-green-l: #25D366;
+  --wtc-ink: #111b21;
+  --wtc-sub: #667781;
+  --wtc-line: #e9edef;
+  --wtc-bg-soft: #f0f2f5;
+}
+
+html, body { width: 320px; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  background: #fff;
+  color: var(--wtc-ink);
+}
+
+.pc-root { padding: 14px 14px 10px; }
+
+/* ---------- 头部 ---------- */
+.pc-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 6px 4px 14px;
+}
+.pc-logo { width: 42px; height: 42px; border-radius: 12px; }
+.pc-brand { flex: 1; min-width: 0; }
+.pc-name { font-size: 17px; font-weight: 700; color: var(--wtc-green-d); }
+.pc-slogan { font-size: 12px; color: var(--wtc-sub); margin-top: 2px; }
+
+/* ---------- 总开关卡片 ---------- */
+.pc-switch-card {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 13px 14px;
+  background: var(--wtc-bg-soft); border-radius: 12px; margin-bottom: 14px;
+}
+.pc-switch-title { font-size: 14.5px; font-weight: 600; }
+.pc-switch-hint { font-size: 11.5px; color: var(--wtc-sub); margin-top: 3px; }
+
+/* 开关 */
+.pc-switch { position: relative; display: inline-block; width: 44px; height: 25px; flex: 0 0 auto; }
+.pc-switch input { opacity: 0; width: 0; height: 0; }
+.pc-switch .pc-slider {
+  position: absolute; inset: 0; background: #cbd5e1; border-radius: 25px;
+  transition: .2s; cursor: pointer;
+}
+.pc-switch .pc-slider::before {
+  content: ""; position: absolute; height: 19px; width: 19px; left: 3px; top: 3px;
+  background: #fff; border-radius: 50%; transition: .2s;
+}
+.pc-switch input:checked + .pc-slider { background: var(--wtc-green); }
+.pc-switch input:checked + .pc-slider::before { transform: translateX(19px); }
+
+/* ---------- 菜单 ---------- */
+.pc-menu { display: flex; flex-direction: column; gap: 8px; }
+.pc-item {
+  display: flex; align-items: center; gap: 11px;
+  width: 100%; padding: 12px 14px;
+  background: #fff; border: 1px solid var(--wtc-line); border-radius: 12px;
+  font-size: 14px; color: var(--wtc-ink); cursor: pointer; text-align: left;
+  transition: background .15s;
+}
+.pc-item:hover { background: var(--wtc-bg-soft); }
+.pc-ic { font-size: 17px; width: 24px; text-align: center; }
+.pc-item-label { flex: 1; }
+.pc-arrow { color: #b0b8bd; font-size: 18px; }
+
+/* ---------- 会员卡 ---------- */
+.pc-member {
+  margin-top: 10px; padding: 6px 14px;
+  background: var(--wtc-bg-soft); border-radius: 12px;
+}
+.pc-member-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 0; font-size: 13px; color: var(--wtc-sub);
+  border-bottom: 1px solid var(--wtc-line);
+}
+.pc-member-row:last-child { border-bottom: none; }
+.pc-member-row b { color: var(--wtc-ink); font-weight: 600; }
+
+/* ---------- 底部 ---------- */
+.pc-footer {
+  margin-top: 14px; padding-top: 10px;
+  border-top: 1px solid var(--wtc-line);
+  text-align: center;
+}
+.pc-version { font-size: 12px; color: var(--wtc-green-d); font-weight: 600; }
+.pc-intro { font-size: 11.5px; color: var(--wtc-sub); margin-top: 3px; }

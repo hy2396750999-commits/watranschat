@@ -1,0 +1,317 @@
+/* =====================================================================
+ * WATransChat shared-core · styles.css
+ * 所有注入 UI 统一前缀 wtc-，独立作用域，避免污染/被 WhatsApp 覆盖。
+ * 颜色沿用 WhatsApp Web：#00A884 / #25D366 / #075E54 / #ECEFF1。
+ * 译文颜色由配置 --wtc-color 动态注入。
+ * ===================================================================== */
+.wtc-root, .wtc-root * { box-sizing: border-box; }
+
+.wtc-root {
+  --wtc-green: #00A884;
+  --wtc-green-d: #075E54;
+  --wtc-green-l: #25D366;
+  --wtc-ink: #111b21;
+  --wtc-sub: #667781;
+  --wtc-line: #e9edef;
+  --wtc-bg: #ffffff;
+  --wtc-bg-soft: #f0f2f5;
+  --wtc-radius: 12px;
+  --wtc-shadow: 0 2px 14px rgba(11, 20, 26, .18);
+  --wtc-color: #2563eb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+}
+
+/* ---------- 气泡内译文 ---------- */
+.wtc-translation {
+  display: block;
+  margin-top: 2px;
+  padding-top: 2px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--wtc-color) !important;
+  white-space: pre-wrap;
+  word-break: break-word;
+  direction: ltr;
+  text-align: left;
+}
+.wtc-translation.wtc-rtl { direction: rtl; text-align: right; }
+.wtc-translation.wtc-only-hide-original { /* 仅译文时由模块隐藏原文 */ }
+.wtc-translation-inline { display: inline; }
+
+/* ---------- 顶部国家信息条 ---------- */
+.wtc-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 10px;
+  padding: 8px 12px;
+  background: var(--wtc-bg-soft);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--wtc-ink);
+  line-height: 1.4;
+}
+.wtc-topbar .wtc-topbar-ic {
+  flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--wtc-green); color: #fff; display: flex;
+  align-items: center; justify-content: center; font-size: 15px;
+}
+.wtc-topbar .wtc-topbar-lines { flex: 1 1 auto; min-width: 0; }
+.wtc-topbar .wtc-topbar-line1 { font-weight: 600; font-size: 13px; }
+.wtc-topbar .wtc-topbar-line1 .wtc-country { color: var(--wtc-green-d); margin-left: 4px; }
+.wtc-topbar .wtc-topbar-line2 { color: var(--wtc-sub); font-size: 11.5px; }
+.wtc-topbar .wtc-topbar-seen { color: var(--wtc-sub); font-size: 11px; }
+
+/* ---------- 会话列表国家名 ---------- */
+.wtc-chatlist-country { color: var(--wtc-green-d); font-weight: 600; font-size: inherit; }
+.wtc-chatlist-filter { display: inline-flex; gap: 6px; margin: 4px 6px 8px; flex-wrap: wrap; }
+.wtc-filter-chip {
+  border: none; border-radius: 14px; padding: 5px 12px; font-size: 12.5px;
+  background: var(--wtc-bg-soft); color: var(--wtc-sub); cursor: pointer;
+}
+.wtc-filter-chip.wtc-active { background: var(--wtc-green-d); color: #fff; }
+
+/* ---------- 输入框旁操作区 ---------- */
+.wtc-input-actions { display: inline-flex; align-items: center; gap: 6px; margin: 0 4px; }
+.wtc-ia-btn {
+  border: none; border-radius: 50%; width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer; background: var(--wtc-green); color: #fff; font-size: 15px;
+}
+.wtc-ia-btn.wtc-ghost { background: var(--wtc-bg-soft); color: var(--wtc-green-d); }
+.wtc-ia-btn.wtc-send { background: var(--wtc-green); }
+.wtc-ia-btn:active { opacity: .85; }
+
+/* ---------- 通用按钮 ---------- */
+.wtc-btn {
+  border: none; border-radius: 8px; padding: 9px 18px; font-size: 14px;
+  cursor: pointer; font-weight: 600;
+}
+.wtc-btn-primary { background: var(--wtc-green); color: #fff; }
+.wtc-btn-ghost { background: var(--wtc-bg-soft); color: var(--wtc-sub); }
+.wtc-btn-block { width: 100%; }
+.wtc-btn-sm { padding: 6px 12px; font-size: 12.5px; }
+
+/* ---------- 开关 ---------- */
+.wtc-switch { position: relative; display: inline-block; width: 42px; height: 24px; flex: 0 0 auto; }
+.wtc-switch input { opacity: 0; width: 0; height: 0; }
+.wtc-switch .wtc-slider {
+  position: absolute; inset: 0; background: #cbd5e1; border-radius: 24px;
+  transition: .2s; cursor: pointer;
+}
+.wtc-switch .wtc-slider::before {
+  content: ""; position: absolute; height: 18px; width: 18px; left: 3px; top: 3px;
+  background: #fff; border-radius: 50%; transition: .2s;
+}
+.wtc-switch input:checked + .wtc-slider { background: var(--wtc-green); }
+.wtc-switch input:checked + .wtc-slider::before { transform: translateX(18px); }
+
+/* ---------- 表单 ---------- */
+.wtc-field { margin-bottom: 14px; }
+.wtc-label { display: block; font-size: 13px; font-weight: 600; color: var(--wtc-ink); margin-bottom: 6px; }
+.wtc-hint { font-size: 11.5px; color: var(--wtc-sub); margin-top: 3px; }
+.wtc-select, .wtc-input {
+  width: 100%; padding: 9px 11px; border: 1px solid var(--wtc-line);
+  border-radius: 8px; font-size: 14px; background: #fff; color: var(--wtc-ink);
+}
+.wtc-select:focus, .wtc-input:focus { outline: none; border-color: var(--wtc-green); }
+
+/* ---------- 弹层（居中卡片） ---------- */
+.wtc-overlay {
+  position: fixed; inset: 0; background: rgba(11, 20, 26, .45);
+  display: flex; align-items: center; justify-content: center; z-index: 99990;
+}
+.wtc-card {
+  background: var(--wtc-bg); border-radius: 14px; padding: 18px;
+  width: calc(100% - 40px); max-width: 380px; box-shadow: var(--wtc-shadow);
+  max-height: 86vh; overflow-y: auto;
+}
+.wtc-card-title { font-size: 16px; font-weight: 700; margin: 0 0 14px; text-align: center; }
+.wtc-card-actions { display: flex; gap: 10px; margin-top: 8px; }
+.wtc-card-actions .wtc-btn { flex: 1; }
+
+/* ---------- 调色板 ---------- */
+.wtc-palette { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.wtc-swatch {
+  width: 100%; aspect-ratio: 1; border-radius: 50%; border: 2px solid transparent;
+  cursor: pointer; padding: 0;
+}
+.wtc-swatch.wtc-sel { border-color: var(--wtc-ink); box-shadow: 0 0 0 2px #fff inset; }
+.wtc-color-preview { height: 40px; border-radius: 8px; margin: 8px 0 14px; }
+
+/* ---------- 侧滑面板 ---------- */
+.wtc-panel {
+  position: fixed; top: 0; right: 0; height: 100%; width: 340px; max-width: 92vw;
+  background: var(--wtc-bg); z-index: 99992; box-shadow: -4px 0 20px rgba(0,0,0,.2);
+  display: flex; flex-direction: column; animation: wtc-slide .18s ease;
+}
+@keyframes wtc-slide { from { transform: translateX(20px); opacity: .4; } to { transform: none; opacity: 1; } }
+.wtc-panel-head {
+  display: flex; align-items: center; gap: 10px; padding: 14px 16px;
+  background: var(--wtc-green-d); color: #fff; font-weight: 600;
+}
+.wtc-panel-head .wtc-close { margin-left: auto; cursor: pointer; font-size: 20px; background: none; border: none; color: #fff; }
+.wtc-panel-body { flex: 1; overflow-y: auto; padding: 14px 16px; }
+
+/* ---------- 列表项（短语/待办） ---------- */
+.wtc-list-item {
+  border: 1px solid var(--wtc-line); border-radius: 10px; padding: 10px 12px;
+  margin-bottom: 8px; font-size: 13px;
+}
+.wtc-list-item .wtc-li-top { display: flex; align-items: center; gap: 8px; }
+.wtc-list-item .wtc-li-group {
+  font-size: 10.5px; background: var(--wtc-green); color: #fff;
+  border-radius: 6px; padding: 1px 7px;
+}
+.wtc-list-item .wtc-li-text { flex: 1; color: var(--wtc-ink); }
+.wtc-list-item .wtc-li-act { display: flex; gap: 6px; }
+.wtc-icon-btn { border: none; background: var(--wtc-bg-soft); border-radius: 6px; cursor: pointer; font-size: 13px; padding: 3px 7px; }
+.wtc-list-item.wtc-done .wtc-li-text { text-decoration: line-through; color: var(--wtc-sub); }
+
+/* ---------- 悬浮按钮 ---------- */
+.wtc-fab-stack { position: fixed; right: 14px; bottom: 84px; display: flex; flex-direction: column; gap: 10px; z-index: 99980; }
+.wtc-fab {
+  width: 46px; height: 46px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--wtc-green-d); color: #fff; font-size: 20px; box-shadow: var(--wtc-shadow);
+  display: flex; align-items: center; justify-content: center;
+}
+.wtc-fab.wtc-dom { background: #b45309; }
+
+/* ---------- DOM 检查 ---------- */
+.wtc-dom-highlight { outline: 2px solid #f59e0b !important; outline-offset: 1px; }
+.wtc-dom-tip {
+  position: fixed; z-index: 99995; max-width: 360px; background: #1f2937;
+  color: #e5e7eb; font: 11px/1.5 ui-monospace, Consolas, monospace;
+  padding: 8px 10px; border-radius: 8px; pointer-events: none; white-space: pre-wrap;
+  box-shadow: var(--wtc-shadow);
+}
+
+/* ---------- 语音输入 ---------- */
+.wtc-voice-overlay {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 99993;
+  background: var(--wtc-bg); border-radius: 16px 16px 0 0; padding: 22px 20px;
+  text-align: center; box-shadow: 0 -6px 24px rgba(0,0,0,.18);
+}
+.wtc-voice-title { font-size: 17px; font-weight: 600; margin-bottom: 16px; color: var(--wtc-ink); }
+.wtc-voice-wave { letter-spacing: 3px; color: var(--wtc-green); font-size: 18px; margin-bottom: 14px; }
+.wtc-voice-lang { display: inline-block; padding: 8px 16px; border: 1px solid var(--wtc-line); border-radius: 10px; font-size: 14px; color: var(--wtc-sub); }
+
+/* ---------- 会员页 ---------- */
+.wtc-member-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.wtc-avatar {
+  width: 56px; height: 56px; border-radius: 50%; background: var(--wtc-green);
+  color: #fff; display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.wtc-member-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 13px 4px; border-bottom: 1px solid var(--wtc-line); font-size: 14px; cursor: pointer;
+}
+.wtc-member-row .wtc-mr-label { color: var(--wtc-ink); }
+.wtc-member-row .wtc-mr-val { color: var(--wtc-sub); font-size: 13px; }
+.wtc-plan-badge { background: var(--wtc-green); color: #fff; border-radius: 6px; padding: 2px 10px; font-size: 12px; }
+
+/* ---------- toast ---------- */
+.wtc-toast {
+  position: fixed; left: 50%; bottom: 120px; transform: translateX(-50%);
+  background: rgba(17, 27, 33, .92); color: #fff; padding: 9px 16px;
+  border-radius: 8px; font-size: 13px; z-index: 99996; animation: wtc-fade .2s;
+}
+@keyframes wtc-fade { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+/* =====================================================================
+ * 通话（语音通话）实时翻译面板（类名前缀 wtc-call-）
+ * ===================================================================== */
+.wtc-call-overlay {
+  position: fixed; inset: 0; background: #000; z-index: 99997;
+  display: flex; flex-direction: column; color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", Helvetica, Arial, sans-serif;
+}
+/* 顶部语言栏 */
+.wtc-call-top { flex: 0 0 auto; padding: 14px 16px 0; }
+.wtc-call-langbar { display: flex; align-items: center; gap: 10px; margin-top: 22px; }
+.wtc-call-lang {
+  flex: 1; position: relative; background: #232a30; border-radius: 10px;
+  padding: 7px 12px; cursor: pointer;
+}
+.wtc-call-lang .wtc-cl-cap { display: block; font-size: 11px; color: #9ba8af; }
+.wtc-call-lang .wtc-cl-val { display: block; font-size: 16px; color: #fff; }
+.wtc-call-lang select { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.wtc-call-swap {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 50%; border: none;
+  background: #232a30; color: #fff; font-size: 18px; cursor: pointer;
+}
+/* 开始/停止 */
+.wtc-call-toggle {
+  display: block; margin: 14px auto 4px; background: none; border: none;
+  font-size: 16px; font-weight: 600; cursor: pointer;
+}
+.wtc-call-toggle.start { color: #25D366; }
+.wtc-call-toggle.stop { color: #ef4444; }
+/* 联系人 */
+.wtc-call-contact { flex: 0 0 auto; text-align: center; padding: 4px 0 8px; }
+.wtc-call-name { font-size: 26px; font-weight: 700; }
+.wtc-call-enc { font-size: 12.5px; color: #9ba8af; margin-top: 4px; }
+.wtc-call-status { font-size: 14px; color: #9ba8af; margin-top: 6px; }
+.wtc-call-status.running { color: #fff; }
+/* 字幕流 */
+.wtc-call-sub { flex: 1 1 auto; overflow-y: auto; padding: 14px 14px 18px; display: flex; flex-direction: column; gap: 10px; }
+.wtc-call-bubble { max-width: 80%; padding: 8px 12px; border-radius: 12px; }
+.wtc-call-bubble.me { align-self: flex-end; background: #0a7d55; text-align: left; }
+.wtc-call-bubble.peer { align-self: flex-start; background: #1f2c34; text-align: left; }
+.wtc-cb-tag { display: block; font-size: 11px; color: #aeb9c0; margin-bottom: 2px; }
+.wtc-cb-orig { display: block; font-size: 14.5px; color: #d7e3e0; }
+.wtc-cb-trans { display: block; font-size: 19px; color: #fff; font-weight: 600; margin-top: 1px; }
+.wtc-call-bubble.peer .wtc-cb-orig { font-size: 19px; color: #fff; font-weight: 600; }
+.wtc-call-bubble.peer .wtc-cb-trans { font-size: 14.5px; color: #d7e3e0; font-weight: 400; }
+.wtc-call-bubble.interim { opacity: .75; }
+.wtc-cb-caret { display: inline-block; animation: wtc-pulse 1s infinite; }
+@keyframes wtc-pulse { 0%,100% { opacity: 1; } 50% { opacity: .2; } }
+/* 底部控制栏 */
+.wtc-call-controls {
+  flex: 0 0 auto; display: flex; justify-content: center; align-items: center;
+  gap: 14px; margin: 0 14px 26px; padding: 12px 16px;
+  background: rgba(30, 38, 44, .72); border-radius: 34px; backdrop-filter: blur(6px);
+}
+.wtc-cc-btn {
+  position: relative; width: 52px; height: 52px; border-radius: 50%; border: none;
+  background: #3b4650; color: #fff; font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.wtc-cc-btn.active { background: #fff; color: #111; }
+.wtc-cc-btn.hangup { background: #ef2c2c; color: #fff; }
+.wtc-cc-btn.slash::before {
+  content: ""; position: absolute; width: 56px; height: 2.6px; background: #ef2c2c;
+  border-radius: 2px; transform: rotate(-45deg);
+}
+.wtc-cc-btn .wtc-cc-ic { font-size: 20px; }
+/* 法律提示横幅 */
+.wtc-call-legal {
+  position: fixed; left: 50%; bottom: 108px; transform: translateX(-50%);
+  background: rgba(20, 26, 30, .94); border-radius: 10px; padding: 10px 14px;
+  max-width: 86%; font-size: 12.5px; color: #e7edf0; text-align: center; z-index: 99998;
+}
+.wtc-call-legal .wtc-cl-btns { margin-top: 8px; display: flex; gap: 10px; justify-content: center; }
+.wtc-call-legal button { border: none; border-radius: 7px; padding: 6px 16px; font-size: 13px; cursor: pointer; }
+.wtc-legal-ok { background: #25D366; color: #fff; }
+.wtc-legal-no { background: #3b4650; color: #fff; }
+/* 聊天顶部入口图标 */
+.wtc-call-entry {
+  border: none; background: transparent; cursor: pointer; color: #667781;
+  width: 36px; height: 36px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.wtc-call-entry:hover { background: #f0f2f5; }
+/* 音色设置 */
+.wtc-call-voice-row { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+.wtc-call-voice-row .wtc-cvr-label { font-size: 14px; width: 92px; color: #e7edf0; }
+.wtc-call-voice-seg { display: flex; background: #232a30; border-radius: 9px; overflow: hidden; }
+.wtc-call-voice-seg button { border: none; background: transparent; color: #9ba8af; padding: 7px 16px; font-size: 13.5px; cursor: pointer; }
+.wtc-call-voice-seg button.sel { background: #25D366; color: #fff; }
+/* 麦克风权限引导 */
+.wtc-call-micguide { background: #1f2c34; border-radius: 12px; padding: 16px; margin: 10px; font-size: 13.5px; color: #d7e3e0; }
+.wtc-call-micguide h4 { margin: 0 0 8px; font-size: 15px; color: #fff; }
+.wtc-call-micguide ol { margin: 0; padding-left: 18px; }
+.wtc-call-micguide li { margin: 5px 0; }

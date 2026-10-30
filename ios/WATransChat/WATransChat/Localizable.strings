@@ -1,0 +1,44 @@
+/* WATransChat iOS · 中英文案参考（默认中文，英文注释对照）
+ * 集成时可按需要拆分到 zh-Hans.lproj / en.lproj。
+ */
+
+/* 通用 / General */
+"app.name" = "WATransChat";                              // WATransChat
+"settings.title" = "翻译设置";                            // Translation Settings
+"settings.general" = "通用";                              // General
+"settings.myLanguage" = "您的语言";                       // Your Language
+"settings.engine" = "全局引擎";                           // Translation Engine
+"settings.autoSend" = "自动发送译文";                     // Auto-send Translation
+"settings.translateColor" = "译文颜色";                   // Translation Color
+
+/* 引擎 / Engines */
+"engine.google" = "谷歌翻译（免费）";                     // Google Translate (Free)
+"engine.bing" = "微软翻译（免费）";                       // Microsoft Bing (Free)
+"engine.volcano" = "火山引擎翻译";                        // Volcengine Translation
+"engine.deepl" = "DeepL 翻译";                           // DeepL
+
+/* 火山引擎 / Volcengine */
+"section.volcano" = "火山引擎（Volcengine）";
+"volcano.accessKeyId" = "AccessKey ID";
+"volcano.secretAccessKey" = "SecretAccessKey";
+"volcano.region" = "region（默认 cn-north-1）";
+
+/* DeepL */
+"section.deepl" = "DeepL";
+"deepl.apiKey" = "DeepL API Key";
+"deepl.free" = "Free 版端点";
+
+/* AI */
+"section.ai" = "AI 引擎";
+"ai.baseUrl" = "Base URL（如 https://api.openai.com/v1）";
+"ai.apiKey" = "API Key";
+"ai.model" = "model（默认 gpt-4o-mini）";
+
+/* 工具条 / Toolbar */
+"toolbar.refresh" = "刷新";
+"toolbar.settings" = "设置";
+"toolbar.tabs" = "标签 / 历史";
+
+/* 提示 / Hints */
+"toast.loading" = "正在加载 WhatsApp Web…";
+"error.invalidUrl" = "无效的 url";

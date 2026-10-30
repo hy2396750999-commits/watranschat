@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WATransChat</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="pc-root">
+    <!-- 顶部 Logo + 名称 -->
+    <header class="pc-header">
+      <img class="pc-logo" src="../icons/icon48.png" alt="WATransChat" />
+      <div class="pc-brand">
+        <div class="pc-name">WATransChat</div>
+        <div class="pc-slogan">WhatsApp 智能翻译助手</div>
+      </div>
+    </header>
+
+    <!-- 总开关 -->
+    <section class="pc-switch-card">
+      <div class="pc-switch-text">
+        <div class="pc-switch-title">启用翻译</div>
+        <div class="pc-switch-hint">关闭后将暂停 WhatsApp 页面上的翻译功能</div>
+      </div>
+      <label class="pc-switch">
+        <input type="checkbox" id="masterSwitch" />
+        <span class="pc-slider"></span>
+      </label>
+    </section>
+
+    <!-- 功能入口 -->
+    <nav class="pc-menu">
+      <button class="pc-item" id="btnSettings">
+        <span class="pc-ic">⚙️</span>
+        <span class="pc-item-label">翻译设置</span>
+        <span class="pc-arrow">›</span>
+      </button>
+      <button class="pc-item" id="btnPhrases">
+        <span class="pc-ic">💬</span>
+        <span class="pc-item-label">快捷短语</span>
+        <span class="pc-arrow">›</span>
+      </button>
+      <button class="pc-item" id="btnQuickChat">
+        <span class="pc-ic">⚡</span>
+        <span class="pc-item-label">快速聊天</span>
+        <span class="pc-arrow">›</span>
+      </button>
+      <button class="pc-item" id="btnCall">
+        <span class="pc-ic">📞</span>
+        <span class="pc-item-label">通话翻译</span>
+        <span class="pc-arrow">›</span>
+      </button>
+      <button class="pc-item" id="btnMember">
+        <span class="pc-ic">👤</span>
+        <span class="pc-item-label">会员 / 账户</span>
+        <span class="pc-arrow" id="memberArrow">›</span>
+      </button>
+      <button class="pc-item" id="btnOpenWa">
+        <span class="pc-ic">🟢</span>
+        <span class="pc-item-label">打开 WhatsApp 新标签</span>
+        <span class="pc-arrow">›</span>
+      </button>
+    </nav>
+
+    <!-- 会员信息卡（本地展示） -->
+    <section class="pc-member" id="memberPanel" hidden>
+      <div class="pc-member-row"><span>账户</span><b id="mName">—</b></div>
+      <div class="pc-member-row"><span>套餐</span><b id="mPlan">—</b></div>
+      <div class="pc-member-row"><span>到期时间</span><b id="mExpire">—</b></div>
+      <div class="pc-member-row"><span>已绑定设备</span><b id="mDevices">—</b></div>
+    </section>
+
+    <footer class="pc-footer">
+      <div class="pc-version">v2.6.8</div>
+      <div class="pc-intro">外贸沟通不翻墙也可与老外聊天</div>
+    </footer>
+  </div>
+
+  <script src="../shared-core/core/config.js"></script>
+  <script src="../shared-core/core/storage.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
